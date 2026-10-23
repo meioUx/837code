@@ -1,0 +1,133 @@
+.contact-form {
+  padding-top: 7px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+.contact-form label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 28px;
+  color: #dce3d3;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  background: #ffffff04;
+  border: 1px solid #ffffff25;
+  outline: none;
+  border-radius: var(--radius-control);
+  padding: 15px 16px;
+  margin-top: 9px;
+  min-height: 50px;
+  color: #eef3e7;
+  font-size: 13px;
+  font-weight: 400;
+  transition: border-color 180ms;
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #98a18e;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px #c6ff3d12;
+}
+.contact-form option {
+  background: #11150e;
+  color: #eef3e7;
+}
+.contact-form .form-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.form-availability {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #a9b797;
+  border-left: 2px solid #c6ff3d55;
+  padding: 14px 16px;
+  border-radius: var(--radius-control);
+  background: #c6ff3d04;
+  margin-bottom: 25px;
+}
+.form-availability a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.form-footer p {
+  font-size: 9px;
+  line-height: 1.8;
+  margin: 0;
+}
+.form-footer a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.form-feedback {
+  font-size: 12px;
+  min-height: 30px;
+  margin: 20px 0 0;
+}
+.form-feedback--error {
+  color: #efba99;
+}
+.form-feedback--success {
+  color: var(--accent);
+}
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    font-size: 16px;
+  }
+  .form-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 23px;
+  }
+  .form-footer .button {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .form-footer p {
+    font-size: 10px;
+  }
+}

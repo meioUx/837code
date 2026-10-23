@@ -1,0 +1,257 @@
+/* Transform-only artwork motion keeps the existing responsive positioning intact. */
+.hero-parallax {
+  min-width: 0;
+  display: flow-root;
+}
+
+.home-hero .hero-copy h1 > .hero-title-line {
+  display: block;
+  overflow: hidden;
+  color: inherit;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.hero-title-line > span {
+  display: inline-block;
+}
+
+.hero-title-accent {
+  color: var(--accent);
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 60;
+  background: var(--accent);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+.tilt-surface {
+  border-radius: var(--radius-card);
+}
+
+.button svg,
+.text-link svg,
+.product-feature__link svg,
+.product-visual-arrow,
+.ecosystem-node > svg:last-child {
+  transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.button:hover svg,
+.product-feature__link:hover svg {
+  transform: translate(3px, -3px);
+}
+
+.text-link:hover svg {
+  transform: translateX(5px);
+}
+
+.product-feature__visual:hover .product-visual-arrow {
+  transform: rotate(-35deg);
+}
+
+.ecosystem-node:hover > svg:last-child {
+  transform: translate(2px, -2px);
+}
+
+.principle-shape {
+  transition: rotate 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.principle:hover .principle-shape {
+  rotate: 30deg;
+}
+
+.principle h3 {
+  transition: color 250ms;
+}
+
+.principle:hover h3 {
+  color: var(--accent);
+}
+
+.product-feature {
+  transition:
+    border-color 350ms,
+    box-shadow 350ms;
+}
+
+.product-feature:hover {
+  border-color: #c6ff3d40;
+  box-shadow: 0 18px 60px #0002;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-phone {
+    animation: phone-float 7s ease-in-out infinite;
+  }
+
+  .hero-front-phone {
+    animation: front-phone-float 8s ease-in-out -2s infinite;
+  }
+
+  .composition-orbit::before {
+    animation: orbit-turn 65s linear infinite;
+  }
+
+  .composition-cross {
+    animation: cross-turn 18s linear infinite;
+  }
+
+  .hero-period {
+    animation: cross-turn 35s linear infinite;
+    transform-origin: center;
+  }
+
+  .hero-baseline svg {
+    animation: arrow-drift 2.4s ease-in-out infinite;
+  }
+
+  .status-dot {
+    animation: dot-breathe 3s ease-in-out infinite;
+  }
+
+  .ecosystem-path {
+    animation: orbit-turn 45s linear infinite;
+  }
+
+  .ecosystem-path::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 14px #c6ff3d66;
+  }
+
+  .detail-intro,
+  .legal-page {
+    animation: page-enter 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @supports (animation-timeline: view()) {
+    .section-heading,
+    .about-layout,
+    .ecosystem-copy,
+    .contact-layout > div:first-child {
+      animation: section-enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 25%;
+    }
+
+    .process-timeline li::before {
+      transform-origin: left center;
+      animation: timeline-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+  }
+}
+
+@keyframes phone-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -13px;
+  }
+}
+
+@keyframes front-phone-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 4px 12px;
+  }
+}
+
+@keyframes orbit-turn {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes cross-turn {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes arrow-drift {
+  0%,
+  100% {
+    translate: 0 -2px;
+  }
+  50% {
+    translate: 0 4px;
+  }
+}
+
+@keyframes dot-breathe {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes section-enter {
+  from {
+    opacity: 0;
+    translate: 0 35px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes timeline-draw {
+  from {
+    scale: 0 1;
+  }
+  to {
+    scale: 1 1;
+  }
+}
+
+@media (max-width: 600px) {
+  @keyframes timeline-draw {
+    from {
+      scale: 1 0;
+    }
+    to {
+      scale: 1 1;
+    }
+  }
+
+  .process-timeline li::before {
+    transform-origin: center top;
+  }
+}

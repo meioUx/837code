@@ -1,0 +1,47 @@
+.vyve-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.vyve-wordmark > img {
+  display: block;
+  width: 180px;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: screen;
+}
+
+.vyve-wordmark > span {
+  font-size: 7px;
+  font-weight: 450;
+  letter-spacing: 3px;
+  color: #e2c5d7;
+}
+
+.vyve-world-wordmark > .vyve-wordmark {
+  gap: 8px;
+}
+
+.vyve-world-wordmark > .vyve-wordmark > img {
+  width: 125px;
+}
+
+.vyve-world-wordmark > .vyve-wordmark > span {
+  font-size: 6px;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 600px) {
+  .vg-brand .vyve-wordmark > img {
+    width: 145px;
+  }
+  .vg-brand .vyve-wordmark {
+    gap: 7px;
+  }
+  .vg-brand .vyve-wordmark > span {
+    font-size: 6px;
+    letter-spacing: 2px;
+  }
+}
